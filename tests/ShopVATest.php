@@ -109,7 +109,9 @@ class ShopVATest extends TestCase
             'body' => json_encode($dataEncrypt['rawData'])
         ]);
 
-        var_dump($response);
+        $responseContent = json_decode($response->getBody()->getContents());
+
+        var_dump($responseContent);
     }
 
     private function getAccessToken(){
