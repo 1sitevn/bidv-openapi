@@ -1,0 +1,41 @@
+<?php
+
+if (!function_exists('config')) {
+    /**
+     * @param $key
+     * @param null $default
+     * @return array|mixed|null
+     */
+    function config($key, $default = null)
+    {
+        /**
+         * @var \OneSite\BIDV\Tests\Config $config
+         */
+        $config = \OneSite\BIDV\Tests\Config::getInstance()->getConfigs();
+
+        return $config->get($key, $default);
+    }
+}
+
+if (!function_exists('env')) {
+    /**
+     * @param $key
+     * @param null $default
+     * @return mixed|null
+     */
+    function env($key, $default = null)
+    {
+        return !empty($_ENV[$key]) ? $_ENV[$key] : $default;
+    }
+}
+
+if (!function_exists('base_path')) {
+    /**
+     * @param string $path
+     * @return string
+     */
+    function base_path($path = "")
+    {
+        return realpath($path);
+    }
+}

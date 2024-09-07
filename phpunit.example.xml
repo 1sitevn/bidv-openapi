@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true">
+    <testsuites>
+        <testsuite name="Application Test Suite">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <includePath>.</includePath>
+        <env name="BIDV_OPENAPI_URL" value=""/>
+        <env name="BIDV_OPENAPI_CLIENT_ID" value=""/>
+        <env name="BIDV_OPENAPI_SECRET_ID" value=""/>
+    </php>
+</phpunit>
