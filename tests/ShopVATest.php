@@ -73,7 +73,7 @@ class ShopVATest extends TestCase
         $this->providerId = config('bidv.virtual_account.provider_id');
 
         $this->apiUrl = config('bidv.open_api.url');
-        $this->apiCreateShopVAUrl = $this->apiUrl . 'paygate/createVAQLBH/v1';     
+        $this->apiCreateShopVAUrl = $this->apiUrl . 'open-banking/paygate/createVAQLBH/v1';     
 
         $params = [
             'serviceId' => $this->serviceId,
@@ -100,7 +100,7 @@ class ShopVATest extends TestCase
             'X-JWS-Signature' => $dataEncrypt['signature'],
         ];
 
-        var_dump($params, $dataEncrypt, $headers);
+        var_dump($params, $dataEncrypt, $headers, $this->apiCreateShopVAUrl);
 
         $response = $this->client->request('POST', $this->apiCreateShopVAUrl, [
             'http_errors' => false,
