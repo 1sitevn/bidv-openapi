@@ -39,3 +39,14 @@ if (!function_exists('base_path')) {
         return realpath($path);
     }
 }
+
+if (!function_exists('storage_path')) {
+    /**
+     * @param string $path
+     * @return string
+     */
+    function storage_path($path = "")
+    {
+        return realpath("storage/" . $path);
+    }
+}
