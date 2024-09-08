@@ -100,7 +100,7 @@ class ShopVATest extends TestCase
             'X-JWS-Signature' => $dataEncrypt['signature'],
         ];
 
-        var_dump($params, $dataEncrypt, $headers, $this->apiCreateShopVAUrl);
+        var_dump($params, $dataEncrypt, $headers, $this->apiCreateShopVAUrl, $this->verify($dataEncrypt['signature']));
 
         $response = $this->client->request('POST', $this->apiCreateShopVAUrl, [
             'http_errors' => false,
